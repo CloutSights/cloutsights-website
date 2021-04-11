@@ -1,0 +1,64 @@
+---
+title: CloutSights
+---
+
+{% include head.html %}
+
+<body class="homepage">
+    <header>
+        <div class="header__child">
+            <p>CloutSights</p>
+        </div>
+        <div class="header__child"><img src="/assets/images/icon.svg" height="24" width="24" alt=""></div>
+        <div class="header__child">
+            <p class="date-time">Sun 11 Apr 1:39PM</p>
+        </div>
+    </header>
+
+    <div class="container  container--homepage">
+        <div class="app-graphic">
+            <img src="/assets/images/app.png" alt="">
+        </div>
+
+        <div class="main-content">
+            <h1>CloutSights</h1>
+            <p>A macOS menu bar app to track your favorite creator coins.</p>
+
+            <button>Buy Now - $4.99</button>
+            <p class="small">macOS 10.14+</p>
+        </div>
+        <div class="spacer"></div>
+        {% include footer.html %}
+    </div>
+
+    <script>
+        let dateElem = document.querySelector('.date-time')
+        updateDateTime()
+        setInterval(updateDateTime, 1000)
+
+        function updateDateTime() {
+            let now = new Date()
+            var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            var d = new Date();
+            var day = days[d.getDay()];
+            var hr = d.getHours();
+            var min = d.getMinutes();
+            if (min < 10) {
+                min = "0" + min;
+            }
+            var ampm = "am";
+            if (hr > 12) {
+                hr -= 12;
+                ampm = "pm";
+            }
+            var date = d.getDate();
+            var month = months[d.getMonth()];
+            var year = d.getFullYear();
+            
+            dateElem.innerHTML = date + " " + month + ", " + hr + ":" + min + ampm;
+        }
+    </script>
+</body>
+
+</html>
